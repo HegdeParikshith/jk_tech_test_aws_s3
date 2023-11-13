@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEnum, IsOptional, IsString, Matches } from 'class-validator';
-import { BucketRegex, S3Region, S3_ACL } from 'src/utils';
+import { BucketRegex, S3Region, S3_ACL } from '../../utils';
 
 export class CreateBucketDto {
   @ApiProperty()

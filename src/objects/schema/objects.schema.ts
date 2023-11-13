@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Transform } from 'class-transformer';
 import mongoose, { Document, Types } from 'mongoose';
-import { Bucket } from 'src/buckets/schema/buckets.schema';
-import { User } from 'src/users/schema/users.schema';
-import { S3_ACL } from 'src/utils';
+import { Bucket } from '../../buckets/schema/buckets.schema';
+import { User } from '../../users/schema/users.schema';
+import { S3_ACL } from '../../utils';
 
 export type BucketObjectDocument = BucketObject & Document;
 

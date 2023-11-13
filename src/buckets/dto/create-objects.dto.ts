@@ -1,6 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsEnum, IsNumberString, IsOptional, IsString } from 'class-validator';
-import { S3_ACL } from 'src/utils';
+import { S3_ACL } from '../../utils';
 
 export class CreateObjectsDto {
   @ApiProperty()

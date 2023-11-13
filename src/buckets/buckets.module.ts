@@ -3,8 +3,8 @@ import { BucketsService } from './buckets.service';
 import { BucketsController } from './buckets.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Bucket, BucketSchema } from './schema/buckets.schema';
-import { UsersModule } from 'src/users/users.module';
-import { ObjectsModule } from 'src/objects/objects.module';
+import { UsersModule } from '../users/users.module';
+import { ObjectsModule } from '../objects/objects.module';
 
 @Module({
   imports: [

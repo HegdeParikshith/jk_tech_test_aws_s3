@@ -2,8 +2,8 @@ import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import { Transform } from 'class-transformer';
 import { ExcludeProperty } from 'nestjs-mongoose-exclude';
-import { User } from 'src/users/schema/users.schema';
-import { BucketRegex, S3_ACL, S3Region } from 'src/utils';
+import { User } from '../../users/schema/users.schema';
+import { BucketRegex, S3_ACL, S3Region } from '../../utils';
 
 export type BucketDocument = Bucket & Document;
 

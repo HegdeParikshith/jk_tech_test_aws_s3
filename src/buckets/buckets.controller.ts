@@ -23,11 +23,11 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { ResponseStatus } from 'src/interface/response.interface';
-import { SerializerInterceptor } from 'src/interface/serializer.interceptor';
-import { ObjectResponseDto } from 'src/objects/dto/object-response-dto';
-import { ObjectsService } from 'src/objects/objects.service';
-import { JwtAuthGuard } from 'src/users/jwt-auth.guard';
+import { ResponseStatus } from '../interface/response.interface';
+import { SerializerInterceptor } from '../interface/serializer.interceptor';
+import { ObjectResponseDto } from '../objects/dto/object-response-dto';
+import { ObjectsService } from '../objects/objects.service';
+import { JwtAuthGuard } from '../users/jwt-auth.guard';
 import { BucketsService } from './buckets.service';
 import { BucketResponseDto } from './dto/bucket-response.dto';
 import { CreateBucketDto } from './dto/create-bucket.dto';

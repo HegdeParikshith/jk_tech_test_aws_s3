@@ -1,9 +1,8 @@
 import { HttpException, Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { error } from 'console';
 import { Model } from 'mongoose';
-import { UsersService } from 'src/users/users.service';
-import { S3Region, S3_ACL } from 'src/utils';
+import { UsersService } from '../users/users.service';
+import { S3Region, S3_ACL } from '../utils';
 import { CreateBucketDto } from './dto/create-bucket.dto';
 import { Bucket, BucketDocument } from './schema/buckets.schema';
 
