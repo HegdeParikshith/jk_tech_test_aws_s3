@@ -40,4 +40,5 @@ export enum S3Region {
 }
 
 export const BucketRegex =
-  /^(?=[a-z0-9.-]{3,63}$)(?!.*\.\.)(?!.*\.[0-9]+\.$)(?!xn--)(?!sthree-)(?!sthree-configurator)(?!.*-s3alias$)(?!.*--ol-s3$)[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/;
+  /^(?!xn--|sthree-|sthree-configurator|--ol-s3)(?!.*(-s3alias$|\.$|\.\.))[a-z0-9](?:[a-z0-9.-]*[a-z0-9]){2,62}$/;
+
