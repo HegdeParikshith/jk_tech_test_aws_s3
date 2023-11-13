@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "6f3b5a78-885d-459c-8168-bfe87448efde",
+		"name": "Aws S3 (TEST)",
+		"description": "Aws s3 like apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21130131"
+	},
+	"item": [
+		{
+			"name": "buckets",
+			"item": [
+				{
+					"name": "{bucketName}/objects",
+					"item": [
+						{
+							"name": "{key}",
+							"item": [
+								{
+									"name": "To Get Single Object from the bucket",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/buckets/:bucketName/objects/:key",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"buckets",
+												":bucketName",
+												"objects",
+												":key"
+											],
+											"variable": [
+												{
+													"key": "bucketName",
+													"value": "te",
+													"description": "(Required) "
+												},
+												{
+													"key": "key",
+													"value": "te",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/buckets/:bucketName/objects/:key",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"buckets",
+														":bucketName",
+														"objects",
+														":key"
+													],
+													"variable": [
+														{
+															"key": "bucketName",
+															"value": "te",
+															"description": "(Required) "
+														},
+														{
+															"key": "key",
+															"value": "te",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "To Get Single Object from the bucket",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "{{bearerToken}}",
+													"type": "string"
+												}
+											]
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/buckets/:bucketName/objects/:key",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"buckets",
+												":bucketName",
+												"objects",
+												":key"
+											],
+											"variable": [
+												{
+													"key": "bucketName",
+													"value": "te",
+													"description": "(Required) "
+												},
+												{
+													"key": "key",
+													"value": "te",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/buckets/:bucketName/objects/:key",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"buckets",
+														":bucketName",
+														"objects",
+														":key"
+													],
+													"variable": [
+														{
+															"key": "bucketName",
+															"value": "te",
+															"description": "(Required) "
+														},
+														{
+															"key": "key",
+															"value": "te",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "To Create Buckets",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "key",
+											"value": "mo",
+											"type": "text"
+										},
+										{
+											"key": "access",
+											"value": "pariatur Duis ",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/buckets/:bucketName/objects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"buckets",
+										":bucketName",
+										"objects"
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "te",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "key",
+													"value": "mo",
+													"type": "text"
+												},
+												{
+													"key": "access",
+													"value": "pariatur Duis ",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/buckets/:bucketName/objects",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"buckets",
+												":bucketName",
+												"objects"
+											],
+											"variable": [
+												{
+													"key": "bucketName",
+													"value": "te",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "To List Objects in the bucket",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{bearerToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/buckets/:bucketName/objects?prefix=te&maxKeys=te",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"buckets",
+										":bucketName",
+										"objects"
+									],
+									"query": [
+										{
+											"key": "prefix",
+											"value": "te",
+											"description": "Limits the response to keys that begin with the specified prefix"
+										},
+										{
+											"key": "maxKeys",
+											"value": "te",
+											"description": "Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more"
+										}
+									],
+									"variable": [
+										{
+											"key": "bucketName",
+											"value": "te",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/buckets/:bucketName/objects?prefix=te&maxKeys=te",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"buckets",
+												":bucketName",
+												"objects"
+											],
+											"query": [
+												{
+													"key": "prefix",
+													"value": "te"
+												},
+												{
+													"key": "maxKeys",
+													"value": "te"
+												}
+											],
+											"variable": [
+												{
+													"key": "bucketName",
+													"value": "te",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "To List Buckets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/buckets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"buckets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/buckets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"buckets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "To Create Buckets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"adipisicing esse voluptate est\",\n  \"access\": \"incididunt\",\n  \"location\": \"veni\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/buckets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"buckets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"adipisicing esse voluptate est\",\n  \"access\": \"incididunt\",\n  \"location\": \"veni\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/buckets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"buckets"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users Controller signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"do\",\n  \"password\": \"ex est veniam in\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/sign_in",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"sign_in"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Untitled Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"do\",\n  \"password\": \"ex est veniam in\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/sign_in",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"sign_in"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Users Controller get Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/me",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Untitled Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
