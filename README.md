@@ -45,19 +45,6 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
@@ -71,3 +58,51 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+# Build a AWS S3 like service.
+
+Ref. to telecon- Full Stack Developer role with JK Tech
+
+## Getting Started
+
+1. **Running the Application**
+
+   The application will run on port 3000. To start the server, use the following command:
+
+The application will be accessible at `http://localhost:3000`.
+
+2. **API Documentation**
+
+Swagger API documentation is available for your convenience. You can access it at:
+
+
+Additionally, a Postman collection is included in the repository to help you test the API easily.
+
+3. **Login Credentials**
+
+To log in to the application, you can use the following credentials:
+
+- Email: `test@gmail.com`
+- Password: `Test@123`
+
+After a successful login, you will receive an authentication token.
+
+4. **Authentication**
+
+All the routes in this application are protected and require authentication. To access authenticated routes, use the token you received after logging in.
+
+## API Endpoints
+
+Api endpoints and descriptions are added in swagger documentation and postman collections
+
+
+## Stay in touch
+
+- Author - Parikshitha Nagappa Hegde
+- Email - parikshithhegde04@gmail.com
+- Contact number - +919845839611
+
+
+## Happy coding!
+
+
