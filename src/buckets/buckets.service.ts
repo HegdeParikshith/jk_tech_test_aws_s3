@@ -1,9 +1,11 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { HttpException, Injectable, OnModuleInit } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Bucket, BucketDocument } from './schema/buckets.schema';
+import { error } from 'console';
 import { Model } from 'mongoose';
-import { S3Region, S3_ACL } from 'src/utils';
 import { UsersService } from 'src/users/users.service';
+import { S3Region, S3_ACL } from 'src/utils';
+import { CreateBucketDto } from './dto/create-bucket.dto';
+import { Bucket, BucketDocument } from './schema/buckets.schema';
 
 @Injectable()
 export class BucketsService implements OnModuleInit {
@@ -28,12 +30,15 @@ export class BucketsService implements OnModuleInit {
     return await this.bucketModel.findOne();
   }
 
-  async createBucket(params) {
-    return await this.bucketModel.create({ ...params });
+  async createBucket(params: CreateBucketDto): Promise<Bucket> {
+    try {
+      return await this.bucketModel.create({ ...params });
+    } catch (error) {}
+    console.error(error);
+    throw new HttpException('Error while creating bucket', 400);
   }
 
   async getBuckets(userId: string): Promise<Bucket[]> {
-    console.info(userId);
     return await this.bucketModel
       .find({ created_by: userId })
       .populate('created_by');

@@ -3,8 +3,12 @@ import { Expose, Type } from 'class-transformer';
 export class BucketDto {
   @Expose()
   createdAt: Date;
+
   @Expose()
   name: string;
+
+  @Expose()
+  location?: string;
 }
 
 export class OwnerDto {
@@ -22,6 +26,10 @@ export class BucketResponseDto {
   @Expose()
   @Type(() => BucketDto)
   buckets: BucketDto;
+
+  @Expose()
+  @Type(() => BucketDto)
+  bucket?: BucketDto;
 
   @Expose()
   @Type(() => OwnerDto)
