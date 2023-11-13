@@ -2,16 +2,19 @@ import {
   Body,
   Controller,
   Get,
+  HttpException,
   NotFoundException,
   Param,
   Post,
   Put,
   Query,
   Req,
+  Res,
   UploadedFile,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -21,15 +24,14 @@ import {
 } from '@nestjs/swagger';
 import { ResponseStatus } from 'src/interface/response.interface';
 import { SerializerInterceptor } from 'src/interface/serializer.interceptor';
+import { ObjectResponseDto } from 'src/objects/dto/object-response-dto';
+import { ObjectsService } from 'src/objects/objects.service';
 import { JwtAuthGuard } from 'src/users/jwt-auth.guard';
 import { BucketsService } from './buckets.service';
 import { BucketResponseDto } from './dto/bucket-response.dto';
 import { CreateBucketDto } from './dto/create-bucket.dto';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateObjectsDto, FilterObjects } from './dto/create-objects.dto';
-import { Express } from 'express';
-import { ObjectsService } from 'src/objects/objects.service';
-import { ObjectResponseDto } from 'src/objects/dto/object-response-dto';
+import { Response } from 'express';
 
 @Controller('buckets')
 export class BucketsController {
@@ -147,5 +149,34 @@ export class BucketsController {
       success: true,
       objects: await this.objectService.getObjects(bucket._id, filter),
     };
+  }
+
+  @Get(':bucketName/objects/:key')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({
+    summary: 'To Get Single Object from the bucket',
+  })
+  @UseInterceptors(new SerializerInterceptor(ObjectResponseDto))
+  @ApiTags('Objects')
+  async getObjects(
+    @Param('bucketName') bucketName: string,
+    @Param('key') key: string,
+    @Req() req,
+    @Res() response: Response,
+  ) {
+    const bucket = await this.bucketsService.findOneBucket({
+      name: bucketName,
+    });
+    if (!bucket) {
+      throw new HttpException('Bucket not found', 404);
+    }
+
+    const object = await this.objectService.findOne(req.user._id, key);
+    if (!object) {
+      throw new HttpException('Object not found', 404);
+    }
+
+    response.download(object.meta.path);
   }
 }
