@@ -29,6 +29,7 @@ import { JwtStrategy } from './jwt.strategy';
       },
     ]),
   ],
+  exports: [UsersService],
   controllers: [UsersController],
   providers: [UsersService, JwtStrategy],
 })
