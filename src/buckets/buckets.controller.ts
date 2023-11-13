@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpException,
   NotFoundException,
@@ -176,7 +177,39 @@ export class BucketsController {
     if (!object) {
       throw new HttpException('Object not found', 404);
     }
-
     response.download(object.meta.path);
+  }
+
+  @Delete(':bucketName/objects/:key')
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({
+    summary: 'To Get Single Object from the bucket',
+  })
+  @UseInterceptors(new SerializerInterceptor(ObjectResponseDto))
+  @ApiTags('Objects')
+  async delete(
+    @Param('bucketName') bucketName: string,
+    @Param('key') key: string,
+    @Req() req,
+  ) {
+    const bucket = await this.bucketsService.findOneBucket({
+      name: bucketName,
+    });
+    if (!bucket) {
+      throw new HttpException('Bucket not found', 404);
+    }
+
+    const object = await this.objectService.findOne(req.user._id, key);
+    if (!object) {
+      throw new HttpException('Object not found', 404);
+    }
+
+    await this.objectService.deleteOne(object._id);
+
+    return {
+      success: true,
+      message: 'Object deleted',
+    };
   }
 }

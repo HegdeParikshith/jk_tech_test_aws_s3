@@ -1,10 +1,13 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { BucketObject, BucketObjectDocument } from './schema/objects.schema';
 import { Model } from 'mongoose';
 import { FilterObjects } from 'src/buckets/dto/create-objects.dto';
 import { S3_ACL } from 'src/utils';
-
+import { unlink } from 'fs';
+import { promisify } from 'util';
+import * as fs from 'fs';
+const unlinkAsync = promisify(fs.unlink);
 @Injectable()
 export class ObjectsService {
   constructor(
@@ -45,5 +48,14 @@ export class ObjectsService {
         { access: { $in: [S3_ACL.public_read, S3_ACL.public_read_write] } },
       ],
     });
+  }
+
+  async deleteOne(id) {
+    try {
+      const object = await this.objectModel.findByIdAndDelete(id);
+      await unlinkAsync(object.meta.path);
+    } catch (error) {
+      throw new HttpException(error.message, error.code);
+    }
   }
 }

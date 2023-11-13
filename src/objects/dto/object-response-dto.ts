@@ -33,4 +33,7 @@ export class ObjectResponseDto {
   @Expose()
   @Type(() => ObjectsDto)
   objects: ObjectsDto;
+
+  @Expose()
+  message: string;
 }
